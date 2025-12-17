@@ -1,0 +1,382 @@
+{
+  "name": "SUB AGENTS",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4ee7f78b-2964-40d8-9566-4e66e33bbfe3",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        208,
+        208
+      ],
+      "id": "b803a82a-1c23-46b1-814c-22dd9c9796d5",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2GjOyn592TzU1l0q",
+          "name": "Google Gemini(PaLM) Api account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        560,
+        208
+      ],
+      "id": "26f1ea7c-7dfd-4396-9d7f-c58b05446e4d",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2GjOyn592TzU1l0q",
+          "name": "Google Gemini(PaLM) Api account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.query }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5140683e-017e-4120-bd97-ca5afb7db95e",
+      "name": "recommendation"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "reply with inventory value \n\n10 shirts\n10 jeans",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        560,
+        0
+      ],
+      "id": "6ded8c86-5ab5-4592-9300-96cc2fb8b81b",
+      "name": "inventory"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "payment is accepted via Credit cards , debit cards, gift cards, or in store point of sale and cash payment\n\n\n1 shirt costs 2000 rupees\n1 jean costs 3000 rupees\n\nuse these for calculation",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        912,
+        0
+      ],
+      "id": "0ddd6712-2720-4d3e-b333-fab1b61e5fe4",
+      "name": "Payment"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        912,
+        224
+      ],
+      "id": "730e8daa-2c0e-477b-bddd-63fcfb35e449",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2GjOyn592TzU1l0q",
+          "name": "Google Gemini(PaLM) Api account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "Schedule delivery and notify logistics or store staff of pickup\n\ndelivery in 4 days \ninform staff about store pickup ",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1264,
+        0
+      ],
+      "id": "29e91731-ac91-495a-95d3-47ed6418bcbf",
+      "name": "full fillment Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        208
+      ],
+      "id": "f39a2938-3d8f-4723-be0e-4acb2ea694c3",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2GjOyn592TzU1l0q",
+          "name": "Google Gemini(PaLM) Api account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "apply coupon  code of 20% on total bill  from payment agent",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1632,
+        0
+      ],
+      "id": "32e59974-8cf5-430d-8da9-ec28020c3fe2",
+      "name": "Loyalty Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        208
+      ],
+      "id": "b41f0854-7736-4cad-9d1f-95b5840e210e",
+      "name": "Google Gemini Chat Model4",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2GjOyn592TzU1l0q",
+          "name": "Google Gemini(PaLM) Api account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "handles returns and exchanges\n\nif customer returns the order process it and initiate a refund",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1984,
+        0
+      ],
+      "id": "a48ffbc3-7f09-4fe5-981f-58e389dacb72",
+      "name": "Post purchase support agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1984,
+        224
+      ],
+      "id": "25c5b2e8-f696-4623-b472-f6bec3ccafae",
+      "name": "Google Gemini Chat Model5",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2GjOyn592TzU1l0q",
+          "name": "Google Gemini(PaLM) Api account 5"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "query": "recommend a fashion product by analyzing customer age and profile, browsing history"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "recommendation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "recommendation",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "inventory",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "recommendation": {
+      "main": [
+        [
+          {
+            "node": "inventory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "inventory": {
+      "main": [
+        [
+          {
+            "node": "Payment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Payment",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Payment": {
+      "main": [
+        [
+          {
+            "node": "full fillment Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "full fillment Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "full fillment Agent": {
+      "main": [
+        [
+          {
+            "node": "Loyalty Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Loyalty Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loyalty Agent": {
+      "main": [
+        [
+          {
+            "node": "Post purchase support agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Post purchase support agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b9ad28b5-1cbd-4873-bad6-3cc10241732e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f2c32a9bbbe5fb96e8a3e9b6c7d7d829bae9908102e71f5bbe5500f4e46e609b"
+  },
+  "id": "ohYNlFh9mvWV8PPc",
+  "tags": []
+}
