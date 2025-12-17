@@ -1,7 +1,7 @@
 # ABFRL
-itle Idea: Bridging the Divide: The Agentic Retail Experience
+Title Idea: Bridging the Divide: The Agentic Retail Experience
 1. Introduction & Industry Context: The "Phygital" Reality
-Narrative: Retail is no longer just about "going shopping" or "buying online." It is a fluid dance between the two. The modern customer is "Phygital"—they browse on Instagram, research on the mobile app, but might walk into a store to try the product on.
+Narrative: Retail is no longer just about "going shopping" or "buying online." It is a fluid dance between the two. The modern customer is "Phygital"t hey browse on Instagram, research on the mobile app, but might walk into a store to try the product on.
 
 However, the industry faces a critical lag. While customers move seamlessly across channels, retail systems remain siloed. The digital profile of a customer rarely walks into the store with them, leaving sales associates blind to preferences and past interactions.
 
