@@ -1,0 +1,346 @@
+{
+  "name": "main agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "you are an orchestrator agent  and your task is to delegate work to the right tool"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -16,
+        -176
+      ],
+      "id": "b0267c10-a2cd-45b1-b497-1a9099f443a4",
+      "name": "Sales Orchestrator Agent"
+    },
+    {
+      "parameters": {
+        "description": "call this tool to give recommendation to customers via email",
+        "workflowId": {
+          "__rl": true,
+          "value": "ohYNlFh9mvWV8PPc",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ohYNlFh9mvWV8PPc",
+          "cachedResultName": "SUB AGENTS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -240,
+        240
+      ],
+      "id": "c3cf2b62-88da-40f9-b565-9304013ddd7f",
+      "name": "recommendation agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -240,
+        -176
+      ],
+      "id": "51db37c0-2de1-40ea-92bc-49b84a408c1d",
+      "name": "When chat message received",
+      "webhookId": "931c7b6b-b918-44c9-8c58-ab3aaa2cb5c5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        0
+      ],
+      "id": "179c5252-4c77-4d81-b0d8-4b891afa348c",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "2GjOyn592TzU1l0q",
+          "name": "Google Gemini(PaLM) Api account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -304,
+        16
+      ],
+      "id": "cfef81c0-b291-4dc1-974a-cfb7aa82b003",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "description": "call this tool to give inventory check",
+        "workflowId": {
+          "__rl": true,
+          "value": "ohYNlFh9mvWV8PPc",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ohYNlFh9mvWV8PPc",
+          "cachedResultName": "SUB AGENTS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -64,
+        240
+      ],
+      "id": "aa6fad99-5751-4b63-ae74-6a3cf9ae4526",
+      "name": "Inventory agent"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "ohYNlFh9mvWV8PPc",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ohYNlFh9mvWV8PPc",
+          "cachedResultName": "SUB AGENTS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        304,
+        240
+      ],
+      "id": "b4d0bed9-99a9-4cc2-ab13-ced5ddd06e54",
+      "name": "full-fill-ment agent"
+    },
+    {
+      "parameters": {
+        "description": "call the loyalty tool to apply offers",
+        "workflowId": {
+          "__rl": true,
+          "value": "ohYNlFh9mvWV8PPc",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ohYNlFh9mvWV8PPc",
+          "cachedResultName": "SUB AGENTS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        496,
+        224
+      ],
+      "id": "1586e8f7-aae2-4ce2-83c9-77d1fa3d5708",
+      "name": "loyalty agent"
+    },
+    {
+      "parameters": {
+        "description": "call the post purchase and support agent",
+        "workflowId": {
+          "__rl": true,
+          "value": "ohYNlFh9mvWV8PPc",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ohYNlFh9mvWV8PPc",
+          "cachedResultName": "SUB AGENTS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        704,
+        224
+      ],
+      "id": "06ca2534-26b5-4721-b8c7-49a883dbc56b",
+      "name": "post purchase"
+    },
+    {
+      "parameters": {
+        "description": "handles payment , via digital payments, and cash",
+        "workflowId": {
+          "__rl": true,
+          "value": "ohYNlFh9mvWV8PPc",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ohYNlFh9mvWV8PPc",
+          "cachedResultName": "SUB AGENTS"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        112,
+        240
+      ],
+      "id": "eedfc6e1-01b0-4c9c-8409-43f8d9b7bcbe",
+      "name": "payment agent"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "recommendation agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inventory agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "full-fill-ment agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loyalty agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "post purchase": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "payment agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Sales Orchestrator Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ce96c92f-b9df-483f-92ed-91f3c69f8a6b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f2c32a9bbbe5fb96e8a3e9b6c7d7d829bae9908102e71f5bbe5500f4e46e609b"
+  },
+  "id": "aX1MwPBC3inlJ06n",
+  "tags": []
+}
